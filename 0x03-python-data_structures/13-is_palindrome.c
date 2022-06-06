@@ -11,40 +11,25 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *current;
-	unsigned int len = 0, i = 0, flag = 1, lastidx, *buffer;
-
-	current = *head;
-	if (*head == NULL || head == NULL)
+	if (head == NULL || *head == NULL)
 		return (1);
+	return (aux_palind(head, *head));
+}
 
-	while (current != NULL)
-	{
-		current = current->next;
-		len++;
-	}
+/**
+ * aux_palind - funct to know if is palindrome
+ * @head: head list
+ * @end: end list
+ */
 
-	buffer = malloc(sizeof(int) * len);
-	if (buffer == NULL)
+int aux_palind(listint_t **head, listint_t *end)
+{
+	if (end == NULL)
 		return (1);
-
-	current = *head;
-	while (current != NULL)
+	if (aux_palind(head, end->next) && (*head)->n == end->n)
 	{
-		buffer[i] = current->n;
-		i++;
-		current = current->next;
+		*head = (*head)->next;
+		return (1);
 	}
-
-	lastidx = len - 1;
-	for (i = 0; i < len / 2; i++)
-	{
-		if (buffer[i] != buffer[lastidx - i])
-		{
-			flag = 0;
-			break;
-		}
-	}
-	free(buffer);
-	return (flag);
+	return (0);
 }
