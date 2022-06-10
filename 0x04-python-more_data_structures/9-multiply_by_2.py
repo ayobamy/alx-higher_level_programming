@@ -5,6 +5,8 @@ def multiply_by_2(a_dictionary):
     a function that returns a new dictionary
     with all values multiplied by 2
     """
-    a_dictionary.update((k, v * 2) for k, v in a_dictionary.items())
+    new_values = {}
+    for v in a_dictionary:
+        new_dictionary[v] = (a_dictionary[v] * 2)
 
-    return a_dictionary
+    return new_dictionary
