@@ -6,13 +6,13 @@ and prints the result.
 
 
 def safe_print_division(a, b):
-    def div(m, n):
-        return (m / n)
+    def div(n, m):
+        return (n / m)
     try:
-        result = div(a, b)
-        return (result)
-    except(ZeroDivisionError):
-        result = None
+        res = div(a, b)
+        return a
+    except ZeroDivisionError:
+        res = None
         return None
     finally:
-        print("Inside result: {}".format(a))
+        print("Inside result: {}".format(res))
