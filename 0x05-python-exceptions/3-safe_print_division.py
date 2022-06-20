@@ -6,9 +6,10 @@ and prints the result.
 
 
 def safe_print_division(a, b):
-    result = (lambda a, b: a / b)
+    def div(m, n):
+        return (m / n)
     try:
-        result = a / b
+        result = div(a, b)
         return (result)
     except(ZeroDivisionError):
         result = None
