@@ -5,7 +5,7 @@
 
 
 def raise_exception():
-    try:
-        num = int(num)
-    except:
+    if TypeError:
         raise TypeError
+    else:
+        pass
