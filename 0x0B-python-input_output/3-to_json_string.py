@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import json
 """
  a function that returns the JSON
  representation of an object (string)
