@@ -82,11 +82,10 @@ class Base:
         load list of objects from file
         :return: list of objects
         """
-        filename = "{}.json".format(cls.__name__)
-
-        if not filename:
+        filename = str(cls.__name__) + ".json"
+        try:
+            with open(filename, "r") as jsonfile:
+                list_dicts = Base.from_json_string(jsonfile.read())
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
             return []
-        else:
-            with open(filename, "r", encoding="utf-8") as f:
-                return [cls.create(**instances) for instances
-                        in cls.from_json_string(f.read())]
