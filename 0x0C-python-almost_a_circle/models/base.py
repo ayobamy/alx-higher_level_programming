@@ -60,3 +60,18 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        create new list of objects
+        :param dictionary: dict object
+        :return: list of objects
+        """
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                new_values = cls(1, 1)
+            else:
+                new_values = cls(1)
+            new_values.update(**dictionary)
+            return new_values
