@@ -75,3 +75,18 @@ class Base:
                 new_values = cls(1)
             new_values.update(**dictionary)
             return new_values
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        load list of objects from file
+        :return: list of objects
+        """
+        filename = str(cls.__name__) + ".json"
+
+        try:
+            with open(filename, encoding="utf-8") as file:
+                json_dict = cls.from_json_string(file.read())
+                return [cls.create(**jd) for jd in json_dict]
+        except IOError:
+            return "[]"
