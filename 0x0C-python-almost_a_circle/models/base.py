@@ -48,3 +48,15 @@ class Base:
             else:
                 list_dict = [list.to_dictionary() for list in list_objs]
                 file.write(cls.to_json_string(list_dict))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        load list of objects from json string
+        :param json_string: json string
+        :return: JSON string representation of list of objects
+        """
+        if (json_string is None or json_string is []):
+            return "[]"
+        else:
+            return json.loads(json_string)
