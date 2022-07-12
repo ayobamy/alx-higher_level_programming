@@ -5,6 +5,7 @@ a module for base class
 
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -132,3 +133,43 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        draw list of rectangles and list of squares
+        :param list_rectangles: list of rectangles
+        :param list_squares: list of squares
+        """
+        turt_tle = turtle.Turtle()
+        turt_tle.screen.bgcolor("#b7312c")
+        turt_tle.pensize(3)
+        turt_tle.shape("turtle")
+
+        turt_tle.color("#ffffff")
+        for rect in list_rectangles:
+            turt_tle.showturtle()
+            turt_tle.up()
+            turt_tle.goto(rect.x, rect.y)
+            turt_tle.down()
+            for i in range(2):
+                turt_tle.forward(rect.width)
+                turt_tle.left(90)
+                turt_tle.forward(rect.height)
+                turt_tle.left(90)
+            turt_tle.hideturtle()
+
+        turt_tle.color("#b5e3d8")
+        for sq in list_squares:
+            turt_tle.showturtle()
+            turt_tle.up()
+            turt_tle.goto(sq.x, sq.y)
+            turt_tle.down()
+            for i in range(2):
+                turt_tle.forward(sq.width)
+                turt_tle.left(90)
+                turt_tle.forward(sq.height)
+                turt_tle.left(90)
+            turt_tle.hideturtle()
+
+        turtle.exitonclick()
