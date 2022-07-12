@@ -56,7 +56,7 @@ class Base:
         :param json_string: json string
         :return: JSON string representation of list of objects
         """
-        if (json_string is None or json_string is []):
+        if (json_string is None or json_string == []):
             return "[]"
         else:
             return json.loads(json_string)
