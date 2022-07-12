@@ -123,3 +123,16 @@ class Rectangle(Base):
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args):
+        """
+        Updates the Rectangle
+        """
+        attbt = ["id", "width", "height", "x", "y"]
+        i = 0
+
+        if args is not None and len(args) > 0:
+            for arg in args:
+                if i < 5:
+                    setattr(self, attbt[i], arg)
+                    i += 1
