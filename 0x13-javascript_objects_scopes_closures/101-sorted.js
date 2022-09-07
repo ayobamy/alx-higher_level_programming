@@ -7,8 +7,7 @@ const newDictOccurence = {};
 for (const [key, value] of Object.entries(dict)) {
   if (newDictOccurence[value]) {
     newDictOccurence[value].push(key);
-  }
-  else {
+  } else {
     (newDictOccurence[value] = [key]);
   }
 }
