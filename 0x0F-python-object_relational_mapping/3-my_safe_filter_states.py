@@ -15,12 +15,12 @@ if __name__ == '__main__':
     cur = db.cursor()
     arg = sys.argv[4]
     cur.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC",
-                   (arg,))
+                (arg,))
 
     states = cur.fetchall()
 
     for state in states:
-            print(state)
+        print(state)
 
     cur.close()
     db.close()
