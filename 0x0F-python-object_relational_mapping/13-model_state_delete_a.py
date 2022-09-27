@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-a script  that deletes all State objects with name 
+a script  that deletes all State objects with name
 containing the letter 'a' from the database
 """
 
@@ -19,5 +19,5 @@ if __name__ == '__main__':
 
     states = session.query(State).filter(State.name.like('%a%')).all()
 
-    [session.delete(state) for state in states] 
+    [session.delete(state) for state in states]
     session.commit()
